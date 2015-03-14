@@ -1,7 +1,5 @@
 package com.fullsail.android.smartbudget.fragments;
-/**
- * Created by shaunthompson on 3/14/15.
- */
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,17 +8,19 @@ import android.view.ViewGroup;
 
 import com.fullsail.android.smartbudget.R;
 
+/**
+ * Created by shaunthompson on 3/14/15.
+ */
+public class ExpenseListviewFragment extends Fragment {
 
-public class IncomeFormFragment extends Fragment {
-
-    public IncomeFormFragment() {
+    public ExpenseListviewFragment() {
 
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_iform, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_elistview, container, false);
         return rootView;
     }
 
@@ -28,10 +28,9 @@ public class IncomeFormFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // TODO - implement static data (milestone2)
 
-        // TODO - connect views & store in custom object (milestone2)
-
-        // TODO - update custom object to save to local storage (milestone3)
+        // TODO - update list dynamically to reflect local storage (milestone3)
 
     }
 }

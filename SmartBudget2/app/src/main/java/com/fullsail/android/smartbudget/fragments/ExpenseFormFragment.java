@@ -1,7 +1,5 @@
 package com.fullsail.android.smartbudget.fragments;
-/**
- * Created by shaunthompson on 3/14/15.
- */
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,17 +8,19 @@ import android.view.ViewGroup;
 
 import com.fullsail.android.smartbudget.R;
 
+/**
+ * Created by shaunthompson on 3/14/15.
+ */
+public class ExpenseFormFragment extends Fragment {
 
-public class IncomeFormFragment extends Fragment {
-
-    public IncomeFormFragment() {
+    public ExpenseFormFragment() {
 
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_iform, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_eform, container, false);
         return rootView;
     }
 

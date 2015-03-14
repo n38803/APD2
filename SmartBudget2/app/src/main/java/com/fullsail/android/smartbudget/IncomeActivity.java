@@ -18,6 +18,8 @@ public class IncomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        // check for instance state & create both fragments
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.incomeForm, new IncomeFormFragment())

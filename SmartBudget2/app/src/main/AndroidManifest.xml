@@ -16,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".IncomeActivity"
+            android:label="Review your Income" >
+        </activity>
+
+        <activity
+            android:name=".ExpenseActivity"
+            android:label="Review your Expenses" >
+        </activity>
+
     </application>
 
 </manifest>

@@ -28,6 +28,10 @@ public class IncomeListviewFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // TODO - implement static data (milestone2)
+
+        // TODO - update list dynamically to reflect local storage (milestone3)
+
     }
 }
 

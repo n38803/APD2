@@ -16,6 +16,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        // TODO - create custom income button & set intents (milestone2)
+        // TODO - create custom expense button & set intents (milestone2)
+        // TODO - create custom logo (milestone2)
+
+
+        // TODO - create dynamic update of spending power (milestone3)
+
+
     }
 
 

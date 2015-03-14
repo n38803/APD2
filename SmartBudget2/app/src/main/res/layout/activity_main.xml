@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/smartbudgetbg"
+    android:background="@drawable/medbg"
     android:weightSum="1">
 
     <TextView
