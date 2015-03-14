@@ -1,19 +1,33 @@
 package com.fullsail.android.smartbudget;
-
+/**
+ * Shaun Thompson - ADP2
+ */
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-/**
- * Created by shaunthompson on 3/14/15.
- */
+import com.fullsail.android.smartbudget.fragments.IncomeFormFragment;
+import com.fullsail.android.smartbudget.fragments.IncomeListviewFragment;
+
 public class ExpenseActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // check for instance state & create both fragments
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.expenseForm, new IncomeFormFragment())
+                    .commit();
+            getFragmentManager().beginTransaction()
+                    .add(R.id.expenseIncome, new IncomeListviewFragment())
+                    .commit();
+        }
+
     }
 
 

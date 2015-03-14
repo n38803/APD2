@@ -1,5 +1,7 @@
 package com.fullsail.android.smartbudget;
-
+/**
+ * Shaun Thompson - ADP2
+ */
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,9 +10,7 @@ import android.view.MenuItem;
 import com.fullsail.android.smartbudget.fragments.IncomeFormFragment;
 import com.fullsail.android.smartbudget.fragments.IncomeListviewFragment;
 
-/**
- * Created by shaunthompson on 3/14/15.
- */
+
 public class IncomeActivity extends Activity {
 
     @Override

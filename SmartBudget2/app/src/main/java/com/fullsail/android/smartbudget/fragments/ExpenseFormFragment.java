@@ -1,5 +1,9 @@
 package com.fullsail.android.smartbudget.fragments;
 
+/**
+ * Shaun Thompson - ADP2
+ */
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,9 +12,6 @@ import android.view.ViewGroup;
 
 import com.fullsail.android.smartbudget.R;
 
-/**
- * Created by shaunthompson on 3/14/15.
- */
 public class ExpenseFormFragment extends Fragment {
 
     public ExpenseFormFragment() {

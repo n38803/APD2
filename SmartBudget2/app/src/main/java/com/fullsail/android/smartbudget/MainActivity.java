@@ -1,7 +1,6 @@
 package com.fullsail.android.smartbudget;
-
 /**
- * Created by shaunthompson on 3/14/15.
+ * Shaun Thompson - ADP2
  */
 
 import android.app.Activity;

@@ -1,6 +1,6 @@
 package com.fullsail.android.smartbudget.fragments;
 /**
- * Created by shaunthompson on 3/14/15.
+ * Shaun Thompson - ADP2
  */
 import android.app.Fragment;
 import android.os.Bundle;
