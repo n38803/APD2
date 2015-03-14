@@ -1,5 +1,9 @@
 package com.fullsail.android.smartbudget;
 
+/**
+ * Created by shaunthompson on 3/14/15.
+ */
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
