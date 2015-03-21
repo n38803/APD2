@@ -24,9 +24,7 @@ public class IncomeActivity extends Activity {
             getFragmentManager().beginTransaction()
                     .add(R.id.incomeForm, new IncomeFormFragment())
                     .commit();
-            getFragmentManager().beginTransaction()
-                    .add(R.id.incomeList, new IncomeListviewFragment())
-                    .commit();
+
         }
 
 

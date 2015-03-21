@@ -43,14 +43,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="INCOME (this will be replaced by custom button)"
-        android:id="@+id/income"
+        android:id="@+id/iButton"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="EXPENSES (this will be replaced by custom button)"
-        android:id="@+id/expenses"
+        android:id="@+id/eButton"
         android:layout_gravity="center_horizontal" />
 
 

@@ -4,12 +4,18 @@ package com.fullsail.android.smartbudget;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends Activity {
+
+    final String TAG = "MAIN_ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +25,50 @@ public class MainActivity extends Activity {
 
 
         // TODO - create custom income button & set intents (milestone2)
+
+        Button income   = (Button) findViewById(R.id.iButton);
+
+        // create onClickListeners for each button w/execution of corresponding methods
+        income.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+
+                        Intent addIntent = new Intent(MainActivity.this, IncomeActivity.class);
+                        //addIntent.putExtra("contactName", mContactDataList.get());
+                        addIntent.putExtra("Add", "From_MainActivity");
+                        //startActivityForResult(addIntent, ADDREQUEST);
+                        startActivity(addIntent);
+
+                        Log.i(TAG, "Income Button Clicked");
+
+                    }
+                }
+        );
+
+
+
+
         // TODO - create custom expense button & set intents (milestone2)
+
+        Button expense   = (Button) findViewById(R.id.eButton);
+
+        // create onClickListeners for each button w/execution of corresponding methods
+        income.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+
+                        Intent addIntent = new Intent(MainActivity.this, ExpenseActivity.class);
+                        //addIntent.putExtra("contactName", mContactDataList.get());
+                        addIntent.putExtra("Add", "From_MainActivity");
+                        //startActivityForResult(addIntent, ADDREQUEST);
+                        startActivity(addIntent);
+
+                        Log.i(TAG, "Income Button Clicked");
+
+                    }
+                }
+        );
+
         // TODO - create custom logo (milestone2)
 
 
