@@ -27,6 +27,11 @@
             android:label="Review your Expenses" >
         </activity>
 
+        <activity
+            android:name=".AddActivity"
+            android:label="Add Your Income or Expense" >
+        </activity>
+
     </application>
 
 </manifest>

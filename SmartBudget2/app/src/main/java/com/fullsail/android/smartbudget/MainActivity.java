@@ -12,6 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.fullsail.android.smartbudget.dataclass.Income;
+
+import java.util.ArrayList;
+
 
 public class MainActivity extends Activity {
 
@@ -33,11 +37,11 @@ public class MainActivity extends Activity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
 
-                        Intent addIntent = new Intent(MainActivity.this, IncomeActivity.class);
+                        Intent incomeIntent = new Intent(MainActivity.this, IncomeActivity.class);
                         //addIntent.putExtra("contactName", mContactDataList.get());
-                        addIntent.putExtra("Add", "From_MainActivity");
+                        incomeIntent.putExtra("Add", "From_MainActivity");
                         //startActivityForResult(addIntent, ADDREQUEST);
-                        startActivity(addIntent);
+                        startActivity(incomeIntent);
 
                         Log.i(TAG, "Income Button Clicked");
 
@@ -53,7 +57,7 @@ public class MainActivity extends Activity {
         Button expense   = (Button) findViewById(R.id.eButton);
 
         // create onClickListeners for each button w/execution of corresponding methods
-        income.setOnClickListener(
+        expense.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
 
@@ -63,7 +67,7 @@ public class MainActivity extends Activity {
                         //startActivityForResult(addIntent, ADDREQUEST);
                         startActivity(addIntent);
 
-                        Log.i(TAG, "Income Button Clicked");
+                        Log.i(TAG, "Expense Button Clicked");
 
                     }
                 }

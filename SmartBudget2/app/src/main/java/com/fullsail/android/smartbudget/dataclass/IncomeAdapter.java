@@ -3,6 +3,7 @@ package com.fullsail.android.smartbudget.dataclass;
 /**
  * Created by shaunthompson on 3/21/15.
  */
+import android.app.Activity;
 import android.content.Context;
 import com.fullsail.android.smartbudget.R;
 import android.view.LayoutInflater;
@@ -18,21 +19,22 @@ public class IncomeAdapter extends BaseAdapter {
     private static final long ID_CONSTANT = 0x01000000;
 
     Context mContext;
-    ArrayList<Income> mArticles;
+    ArrayList<Income> mIncomeItems;
 
-    public IncomeAdapter(Context context, ArrayList<Income> contacts) {
+    public IncomeAdapter(Context context, ArrayList<Income> items) {
         mContext = context;
-        mArticles = contacts;
+        mIncomeItems = items;
     }
+
 
     @Override
     public int getCount() {
-        return mArticles.size();
+        return mIncomeItems.size();
     }
 
     @Override
     public Income getItem(int position) {
-        return mArticles.get(position);
+        return mIncomeItems.get(position);
     }
 
     @Override
@@ -46,9 +48,14 @@ public class IncomeAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.income_item, parent, false);
         }
 
-        Income article = getItem(position);
-        TextView articleTitle = (TextView) convertView.findViewById(R.id.title);
-        articleTitle.setText(article.getTitle());
+        Income income = getItem(position);
+
+        TextView incomeTitle = (TextView) convertView.findViewById(R.id.title);
+        incomeTitle.setText(income.getTitle());
+
+        TextView incomeAmount = (TextView) convertView.findViewById(R.id.amount);
+        String amount = Integer.toString(income.getAmount());
+        incomeAmount.setText(amount);
 
         return convertView;
     }

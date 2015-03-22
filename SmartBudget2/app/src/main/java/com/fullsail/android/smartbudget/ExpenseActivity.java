@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.fullsail.android.smartbudget.fragments.IncomeFormFragment;
 import com.fullsail.android.smartbudget.fragments.IncomeListviewFragment;
 
 public class ExpenseActivity extends Activity {
@@ -15,14 +14,11 @@ public class ExpenseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_expense);
 
 
         // check for instance state & create both fragments
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.expenseForm, new IncomeFormFragment())
-                    .commit();
             getFragmentManager().beginTransaction()
                     .add(R.id.expenseIncome, new IncomeListviewFragment())
                     .commit();
@@ -46,7 +42,7 @@ public class ExpenseActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add) {
             return true;
         }
 

@@ -11,16 +11,18 @@ import android.view.ViewGroup;
 import com.fullsail.android.smartbudget.R;
 
 
-public class IncomeFormFragment extends Fragment {
+public class FormFragment extends Fragment {
 
-    public IncomeFormFragment() {
+    public FormFragment() {
 
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_iform, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_form, container, false);
+
+
         return rootView;
     }
 

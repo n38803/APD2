@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textSize="16pt"
         android:textStyle="bold"
-        android:text="EXPENSES"
+        android:text="ADD NEW ITEM"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -24,13 +24,13 @@
             android:layout_gravity="bottom"
             android:gravity="left"
             android:text="Amount: "
-            android:id="@+id/eAmount"
+            android:id="@+id/amount"
             android:layout_weight=".7"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/eAmountInput"
+            android:id="@+id/amountInput"
             android:inputType="numberDecimal"
             android:layout_weight=".3"
             android:layout_gravity="center_horizontal" />
@@ -50,16 +50,16 @@
             android:layout_gravity="bottom"
             android:gravity="left"
             android:text="Description: "
-            android:id="@+id/eDescription"
+            android:id="@+id/title"
             android:layout_weight=".7"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/eDescriptionInput"
-            android:inputType="numberDecimal"
+            android:id="@+id/titleInput"
             android:layout_weight=".3"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:inputType="textShortMessage" />
 
     </LinearLayout>
 
