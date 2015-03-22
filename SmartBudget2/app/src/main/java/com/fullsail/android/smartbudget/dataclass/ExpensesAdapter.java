@@ -14,27 +14,27 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class IncomeAdapter extends BaseAdapter {
+public class ExpensesAdapter extends BaseAdapter {
 
     private static final long ID_CONSTANT = 0x01000000;
 
     Context mContext;
-    ArrayList<Income> mIncomeItems;
+    ArrayList<Expenses> mExpenseItems;
 
-    public IncomeAdapter(Context context, ArrayList<Income> items) {
+    public ExpensesAdapter(Context context, ArrayList<Expenses> items) {
         mContext = context;
-        mIncomeItems = items;
+        mExpenseItems = items;
     }
 
 
     @Override
     public int getCount() {
-        return mIncomeItems.size();
+        return mExpenseItems.size();
     }
 
     @Override
-    public Income getItem(int position) {
-        return mIncomeItems.get(position);
+    public Expenses getItem(int position) {
+        return mExpenseItems.get(position);
     }
 
     @Override
@@ -48,14 +48,14 @@ public class IncomeAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
         }
 
-        Income income = getItem(position);
+        Expenses expense = getItem(position);
 
-        TextView incomeTitle = (TextView) convertView.findViewById(R.id.title);
-        incomeTitle.setText(income.getTitle());
+        TextView expenseTitle = (TextView) convertView.findViewById(R.id.title);
+        expenseTitle.setText(expense.getTitle());
 
-        TextView incomeAmount = (TextView) convertView.findViewById(R.id.amount);
-        String amount = Integer.toString(income.getAmount());
-        incomeAmount.setText(amount);
+        TextView expenseAmount = (TextView) convertView.findViewById(R.id.amount);
+        String amount = Integer.toString(expense.getAmount());
+        expenseAmount.setText(amount);
 
         return convertView;
     }

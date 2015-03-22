@@ -63,9 +63,6 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
         readFile();
 
-        //addButton = (Button) findViewById(R.id.addButton);
-
-
     }
 
 
