@@ -32,6 +32,10 @@
             android:label="Add Your Income or Expense" >
         </activity>
 
+        <intent-filter>
+            <action android:name="com.fullsail.android.smartbudget.ACTION_ADD_ITEM" />
+        </intent-filter>
+
     </application>
 
 </manifest>

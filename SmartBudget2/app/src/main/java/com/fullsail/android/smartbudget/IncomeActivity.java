@@ -32,10 +32,10 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
     private final String saveFile = "SmartBudget_Income.txt";
 
 
-    public static final int ADDREQUEST = 1;
+    public static final int ADDREQUEST = 2;
 
     private ArrayList<Income> mIncomeList;
-    public Button addButton;
+
 
     private Context mContext;
 

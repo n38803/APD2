@@ -38,9 +38,7 @@ public class MainActivity extends Activity {
                     public void onClick(View v) {
 
                         Intent incomeIntent = new Intent(MainActivity.this, IncomeActivity.class);
-                        //addIntent.putExtra("contactName", mContactDataList.get());
                         incomeIntent.putExtra("Add", "From_MainActivity");
-                        //startActivityForResult(addIntent, ADDREQUEST);
                         startActivity(incomeIntent);
 
                         Log.i(TAG, "Income Button Clicked");
