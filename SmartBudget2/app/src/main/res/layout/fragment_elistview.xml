@@ -20,11 +20,6 @@
         android:text="$AmountHere$"
         android:id="@+id/totalExpenses" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add New Expense Item"
-        android:onClick="onClick"/>
 
     <ListView
         android:layout_width="match_parent"

@@ -20,11 +20,6 @@
         android:text="$AmountHere$"
         android:id="@+id/totalIncome" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add New Income Item"
-        android:onClick="onClick"/>
 
     <ListView
         android:layout_width="match_parent"

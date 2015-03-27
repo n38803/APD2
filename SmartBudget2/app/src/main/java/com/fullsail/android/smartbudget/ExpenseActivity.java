@@ -66,21 +66,6 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
     }
 
 
-    public void onClick(View v) {
-
-
-
-        // TODO - Create Intent to retrieve added information
-        Intent addIntent = new Intent(ExpenseActivity.this, AddActivity.class);
-        addIntent.putExtra("Add", "From_Expense");
-        startActivityForResult(addIntent, ADDREQUEST);
-
-
-        Log.i(TAG, "Add Button Clicked");
-
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -95,7 +80,15 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_add) {
-            return true;
+
+
+            // TODO - Create Intent to retrieve added information
+            Intent addIntent = new Intent(ExpenseActivity.this, AddActivity.class);
+            addIntent.putExtra("Add", "From_Expense");
+            startActivityForResult(addIntent, ADDREQUEST);
+
+
+            Log.i(TAG, "Add Button Clicked");
         }
         return super.onOptionsItemSelected(item);
 

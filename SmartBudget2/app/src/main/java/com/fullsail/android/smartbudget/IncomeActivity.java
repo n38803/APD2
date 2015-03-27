@@ -2,6 +2,7 @@ package com.fullsail.android.smartbudget;
 /**
  * Shaun Thompson - ADP2
  */
+import android.app.ActionBar;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -56,6 +57,8 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
         setContentView(R.layout.activity_income);
 
 
+
+
         // check for instance state & create both fragments
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -70,20 +73,7 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
     }
 
 
-    public void onClick(View v) {
 
-
-
-        // Create Intent to retrieve added information
-        Intent addIntent = new Intent(IncomeActivity.this, AddActivity.class);
-        addIntent.putExtra("Add", "From_Income");
-        startActivityForResult(addIntent, ADDREQUEST);
-
-
-        Log.i(TAG, "Add Button Clicked");
-
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,12 +84,21 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_add) {
-            return true;
+
+            // Create Intent to retrieve added information
+            Intent addIntent = new Intent(IncomeActivity.this, AddActivity.class);
+            addIntent.putExtra("Add", "From_Income");
+            startActivityForResult(addIntent, ADDREQUEST);
+
+
+            Log.i(TAG, "Add Button Clicked");
         }
         return super.onOptionsItemSelected(item);
 

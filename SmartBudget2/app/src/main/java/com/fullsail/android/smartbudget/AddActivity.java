@@ -4,6 +4,7 @@ package com.fullsail.android.smartbudget;
  * Shaun Thompson - ADP2
  */
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -46,9 +47,6 @@ public class AddActivity extends Activity {
 
 
 
-
-
-
     }
 
 
@@ -67,9 +65,7 @@ public class AddActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
