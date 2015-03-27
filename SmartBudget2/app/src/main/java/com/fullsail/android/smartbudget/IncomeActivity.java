@@ -34,7 +34,9 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
     public static final int ADDREQUEST = 2;
 
-    private ArrayList<Income> mIncomeList;
+
+
+    public static ArrayList<Income> mIncomeList;
 
 
     private Context mContext;
@@ -113,7 +115,7 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
             String mAmount = data.getStringExtra("incomeAmount");
             String action = data.getStringExtra("action");
 
-            int convertAmount = Integer.parseInt(mAmount);
+            float convertAmount = Float.parseFloat(mAmount);
 
             mIncomeList.add(new Income(mTitle, convertAmount));
 

@@ -51,6 +51,18 @@ ADDED from AndroidManifest.xml:25:9
 		ADDED from AndroidManifest.xml:27:13
 	android:name
 		ADDED from AndroidManifest.xml:26:13
+activity#com.fullsail.android.smartbudget.AddActivity
+ADDED from AndroidManifest.xml:30:9
+	android:label
+		ADDED from AndroidManifest.xml:32:13
+	android:name
+		ADDED from AndroidManifest.xml:31:13
+intent-filter#com.fullsail.android.smartbudget.ACTION_ADD_ITEM
+ADDED from AndroidManifest.xml:35:9
+action#com.fullsail.android.smartbudget.ACTION_ADD_ITEM
+ADDED from AndroidManifest.xml:36:13
+	android:name
+		ADDED from AndroidManifest.xml:36:21
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 	android:targetSdkVersion

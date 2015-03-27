@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
+
+
     final String TAG = "MAIN_ACTIVITY";
 
     @Override
