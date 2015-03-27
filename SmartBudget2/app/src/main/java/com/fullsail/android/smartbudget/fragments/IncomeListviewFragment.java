@@ -4,6 +4,7 @@ package com.fullsail.android.smartbudget.fragments;
  */
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,7 +28,9 @@ public class IncomeListviewFragment extends Fragment {
     final String TAG = "IncomeListViewFragment";
 
     float thisIncome;
-    public float totalIncome;
+    float totalIncome;
+
+    public static float mainIncome;
 
     private ArrayList<Income> mIncomeList;
 
@@ -62,6 +65,10 @@ public class IncomeListviewFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        // update income quantity for main textview
+        Intent intent = getActivity().getIntent();
+        getActivity().setResult(getActivity().RESULT_OK, intent);
 
 
 
@@ -110,6 +117,7 @@ public class IncomeListviewFragment extends Fragment {
         for (int i = 1;i<incomeSize;i++){
             thisIncome = IncomeActivity.mIncomeList.get(i).getAmount();
             totalIncome = (totalIncome+thisIncome);
+            mainIncome = totalIncome;
 
         }
 
@@ -119,6 +127,8 @@ public class IncomeListviewFragment extends Fragment {
         TextView incomeTotal = (TextView) getView().findViewById((R.id.totalIncome));
         String displayIncome = Float.toString(totalIncome);
         incomeTotal.setText("$" + displayIncome);
+
+
     }
 }
 

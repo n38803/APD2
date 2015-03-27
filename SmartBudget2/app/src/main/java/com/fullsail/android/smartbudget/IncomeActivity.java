@@ -65,6 +65,8 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
         readFile();
 
+
+
     }
 
 
@@ -72,7 +74,7 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
 
 
-        // TODO - Create Intent to retrieve added information
+        // Create Intent to retrieve added information
         Intent addIntent = new Intent(IncomeActivity.this, AddActivity.class);
         addIntent.putExtra("Add", "From_Income");
         startActivityForResult(addIntent, ADDREQUEST);
@@ -200,9 +202,9 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
             // static population of data
             mIncomeList = new ArrayList<Income>();
-            mIncomeList.add(new Income("Tim owes money", 100));
-            mIncomeList.add(new Income("Paycheck", 200));
-            mIncomeList.add(new Income("Paycheck", 300));
+            mIncomeList.add(new Income("Tim owes money", 1000));
+            mIncomeList.add(new Income("Paycheck", 2000));
+            mIncomeList.add(new Income("Paycheck", 3000));
 
 
             writeFile();

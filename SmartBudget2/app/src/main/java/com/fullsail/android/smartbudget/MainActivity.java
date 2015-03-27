@@ -11,8 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.fullsail.android.smartbudget.dataclass.Income;
+import com.fullsail.android.smartbudget.fragments.ExpenseListviewFragment;
+import com.fullsail.android.smartbudget.fragments.IncomeListviewFragment;
 
 import java.util.ArrayList;
 
@@ -22,15 +25,18 @@ public class MainActivity extends Activity {
 
 
     final String TAG = "MAIN_ACTIVITY";
+    public static final int ADDREQUEST = 0;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        updateDisplay();
 
-
-        // TODO - create custom income button & set intents (milestone2)
 
         Button income   = (Button) findViewById(R.id.iButton);
 
@@ -40,8 +46,9 @@ public class MainActivity extends Activity {
                     public void onClick(View v) {
 
                         Intent incomeIntent = new Intent(MainActivity.this, IncomeActivity.class);
-                        incomeIntent.putExtra("Add", "From_MainActivity");
-                        startActivity(incomeIntent);
+                        incomeIntent.putExtra("Income", "From_MainActivity");
+                        //startActivity(incomeIntent);
+                        startActivityForResult(incomeIntent, ADDREQUEST);
 
                         Log.i(TAG, "Income Button Clicked");
 
@@ -52,8 +59,6 @@ public class MainActivity extends Activity {
 
 
 
-        // TODO - create custom expense button & set intents (milestone2)
-
         Button expense   = (Button) findViewById(R.id.eButton);
 
         // create onClickListeners for each button w/execution of corresponding methods
@@ -61,11 +66,11 @@ public class MainActivity extends Activity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
 
-                        Intent addIntent = new Intent(MainActivity.this, ExpenseActivity.class);
+                        Intent expIntent = new Intent(MainActivity.this, ExpenseActivity.class);
                         //addIntent.putExtra("contactName", mContactDataList.get());
-                        addIntent.putExtra("Add", "From_MainActivity");
-                        //startActivityForResult(addIntent, ADDREQUEST);
-                        startActivity(addIntent);
+                        expIntent.putExtra("Expenses", "From_MainActivity");
+                        startActivityForResult(expIntent, ADDREQUEST);
+                        //startActivity(addIntent);
 
                         Log.i(TAG, "Expense Button Clicked");
 
@@ -73,14 +78,31 @@ public class MainActivity extends Activity {
                 }
         );
 
-        // TODO - create custom logo (milestone2)
 
 
-        // TODO - create dynamic update of spending power (milestone3)
+
+
+
 
 
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+
+            case (ADDREQUEST) : {
+                if (resultCode == Activity.RESULT_OK) {
+
+                    updateDisplay();
+                }
+                break;
+            }
+
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,4 +125,20 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void updateDisplay() {
+
+        // TODO - create dynamic update of spending power (milestone3)
+        TextView sp = (TextView) findViewById(R.id.spendingPower);
+        float totalSP = (IncomeListviewFragment.mainIncome - ExpenseListviewFragment.mainExpenses);
+        Log.e(TAG,
+                "Income: "              + IncomeListviewFragment.mainIncome +
+                        " // Expenses: "        + ExpenseListviewFragment.mainExpenses +
+                        " // Spending Power: "  + totalSP
+        );
+        sp.setText("$" + String.format("%.2f", totalSP));
+
+
+    }
+
 }

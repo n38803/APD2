@@ -13,33 +13,7 @@
         android:layout_gravity="center"
         android:src="@drawable/sblogo" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <!-- Dummy content. -->
-        <LinearLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView android:id="@android:id/text1"
-                style="?android:textAppearanceLarge"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
-
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Test Scroll" />
-
-        </LinearLayout>
-
-    </ScrollView>
 
 
     <TextView
@@ -57,7 +31,8 @@
         android:layout_gravity="center"
         android:textSize="16pt"
         android:textStyle="bold"
-        android:layout_weight=".5"/>
+        android:layout_weight=".5"
+        android:id="@+id/spendingPower"/>
 
     <Button
         android:layout_width="match_parent"

@@ -50,10 +50,6 @@ public class FormFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        // TODO - connect views & store in custom object (milestone2)
-
-        // TODO - update custom object to save to local storage (milestone3)
-
 
 
         // assign references

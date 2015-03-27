@@ -4,6 +4,7 @@ package com.fullsail.android.smartbudget.fragments;
  */
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +32,8 @@ public class ExpenseListviewFragment extends Fragment {
     private ExpenseListener mListener;
 
     float thisExpense;
-    public float totalExpenses;
+    float totalExpenses;
+    public static float mainExpenses;
 
     public interface ExpenseListener{
         public void viewExpense(int position);
@@ -63,6 +65,10 @@ public class ExpenseListviewFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
+        // update income quantity for main textview
+        Intent intent = getActivity().getIntent();
+        getActivity().setResult(getActivity().RESULT_OK, intent);
 
 
         ListView expensesListView = (ListView) getView().findViewById(R.id.eListView);
@@ -101,6 +107,7 @@ public class ExpenseListviewFragment extends Fragment {
         for (int i = 1;i<expensesSize;i++){
             thisExpense = ExpenseActivity.mExpenseList.get(i).getAmount();
             totalExpenses = (totalExpenses+thisExpense);
+            mainExpenses = totalExpenses;
 
         }
 
