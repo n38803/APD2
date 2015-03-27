@@ -5,13 +5,17 @@ package com.fullsail.android.smartbudget.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.fullsail.android.smartbudget.ExpenseActivity;
+import com.fullsail.android.smartbudget.IncomeActivity;
 import com.fullsail.android.smartbudget.R;
 import com.fullsail.android.smartbudget.dataclass.Expenses;
 import com.fullsail.android.smartbudget.dataclass.ExpensesAdapter;
@@ -25,6 +29,9 @@ public class ExpenseListviewFragment extends Fragment {
     final String TAG = "IncomeListViewFragment";
 
     private ExpenseListener mListener;
+
+    float thisExpense;
+    public float totalExpenses;
 
     public interface ExpenseListener{
         public void viewExpense(int position);
@@ -56,13 +63,13 @@ public class ExpenseListviewFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // TODO - implement static data (milestone2)
 
-        // TODO - update list dynamically to reflect local storage (milestone3)
 
         ListView expensesListView = (ListView) getView().findViewById(R.id.eListView);
         ExpensesAdapter iAdapter = new ExpensesAdapter(getActivity().getApplicationContext(), mListener.getExpenses());
         expensesListView.setAdapter(iAdapter);
+
+        updateListData();
 
         // TODO - ADD DELETE ITEM or VIEW ITEM OPTION?
         /*
@@ -77,9 +84,32 @@ public class ExpenseListviewFragment extends Fragment {
     }
 
     public void updateListData(){
+        //update list
         ListView expensesList = (ListView) getView().findViewById(R.id.eListView);
         BaseAdapter expensesAdapter = (BaseAdapter) expensesList.getAdapter();
         expensesAdapter.notifyDataSetChanged();
+
+        int expensesSize = ExpenseActivity.mExpenseList.size();
+        Log.i(TAG, "List Size: " + expensesSize);
+
+        thisExpense = 0;
+        totalExpenses = 0;
+
+
+
+        // calculate total of income
+        for (int i = 1;i<expensesSize;i++){
+            thisExpense = ExpenseActivity.mExpenseList.get(i).getAmount();
+            totalExpenses = (totalExpenses+thisExpense);
+
+        }
+
+
+        // TODO - FORMAT STRING SO FLOAT DOES NOT EXCEED 2 DECIMALS
+        // update textview
+        TextView expenseTotal = (TextView) getView().findViewById((R.id.totalExpenses));
+        String displayExpenses = Float.toString(totalExpenses);
+        expenseTotal.setText("$" + displayExpenses);
     }
 }
 

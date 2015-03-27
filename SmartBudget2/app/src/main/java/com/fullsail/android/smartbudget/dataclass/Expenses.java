@@ -10,9 +10,9 @@ public class Expenses implements Serializable {
     private static final long serialVersionUID = 517116325584636891L;
 
     private String mTitle;
-    private int mAmount;
+    private float mAmount;
 
-    public Expenses (String _title, int _amount) {
+    public Expenses (String _title, float _amount) {
         mTitle = _title;
         mAmount = _amount;
     }
@@ -21,7 +21,7 @@ public class Expenses implements Serializable {
         return mTitle;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return mAmount;
     }
 

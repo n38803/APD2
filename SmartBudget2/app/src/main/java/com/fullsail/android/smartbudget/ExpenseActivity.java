@@ -34,7 +34,7 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
 
     public static final int ADDREQUEST = 1;
 
-    private ArrayList<Expenses> mExpenseList;
+    public static ArrayList<Expenses> mExpenseList;
 
 
     private Context mContext;
@@ -113,7 +113,7 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
             String mAmount = data.getStringExtra("expenseAmount");
             String action = data.getStringExtra("action");
 
-            int convertAmount = Integer.parseInt(mAmount);
+            float convertAmount = Float.parseFloat(mAmount);
 
             mExpenseList.add(new Expenses(mTitle, convertAmount));
 

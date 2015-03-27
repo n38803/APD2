@@ -26,8 +26,8 @@ public class IncomeListviewFragment extends Fragment {
 
     final String TAG = "IncomeListViewFragment";
 
-    float thisIncome = 0;
-    float totalIncome = 0;
+    float thisIncome;
+    public float totalIncome;
 
     private ArrayList<Income> mIncomeList;
 
@@ -114,7 +114,7 @@ public class IncomeListviewFragment extends Fragment {
         }
 
 
-
+        // TODO - FORMAT STRING SO FLOAT DOES NOT EXCEED 2 DECIMALS
         // update textview
         TextView incomeTotal = (TextView) getView().findViewById((R.id.totalIncome));
         String displayIncome = Float.toString(totalIncome);
