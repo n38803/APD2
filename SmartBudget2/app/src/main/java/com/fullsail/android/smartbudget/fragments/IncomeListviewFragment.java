@@ -3,7 +3,9 @@ package com.fullsail.android.smartbudget.fragments;
  * Shaun Thompson - ADP2
  */
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -68,6 +70,7 @@ public class IncomeListviewFragment extends Fragment {
 
         // update income quantity for main textview
         Intent intent = getActivity().getIntent();
+        intent.putExtra("Fragment", "Income");
         getActivity().setResult(getActivity().RESULT_OK, intent);
 
 
@@ -78,15 +81,38 @@ public class IncomeListviewFragment extends Fragment {
 
         updateListData();
 
-        // TODO - ADD DELETE ITEM or VIEW ITEM OPTION?
-        /*
-        articleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        incomeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mListener.viewIncome(position);
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+                AlertDialog.Builder eBuilder = new AlertDialog.Builder(getActivity());
+                eBuilder.setTitle("Alert");
+                eBuilder.setMessage("Would you like to delete this item?");
+                eBuilder.setCancelable(false);
+                eBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                eBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        mListener.getIncome().remove(position);
+                        dialog.cancel();
+                        ((IncomeActivity)getActivity()).writeFile();
+                        updateListData();
+                    }
+                });
+
+                // CREATE DIALOG
+                AlertDialog error = eBuilder.create();
+                error.show();
+
+
             }
         });
-        */
+
 
 
 
@@ -114,7 +140,7 @@ public class IncomeListviewFragment extends Fragment {
         totalIncome = 0;
 
         // calculate total of income
-        for (int i = 1;i<incomeSize;i++){
+        for (int i = 0;i<incomeSize;i++){
             thisIncome = IncomeActivity.mIncomeList.get(i).getAmount();
             totalIncome = (totalIncome+thisIncome);
             mainIncome = totalIncome;

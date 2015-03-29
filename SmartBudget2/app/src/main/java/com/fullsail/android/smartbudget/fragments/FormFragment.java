@@ -2,7 +2,9 @@ package com.fullsail.android.smartbudget.fragments;
 /**
  * Shaun Thompson - ADP2
  */
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,7 +52,8 @@ public class FormFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-
+        inputTitle = (TextView) getActivity().findViewById(R.id.titleInput);
+        inputAmount = (TextView) getActivity().findViewById(R.id.amountInput);
 
         // assign references
         Button save     = (Button) getActivity().findViewById(R.id.submit);
@@ -61,8 +64,44 @@ public class FormFragment extends Fragment {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
 
-                        // call save method
-                        onSave();
+                        AlertDialog.Builder eBuilder = new AlertDialog.Builder(getActivity());
+
+                        if (inputTitle.getText().toString().trim().length() == 0 || inputAmount.getText().toString().trim().length() == 0){
+                            Log.e(TAG, "INPUTS CANNOT BE BLANK!");
+
+
+                            eBuilder.setTitle("ERROR!");
+                            eBuilder.setMessage("Inputs cannot be left blank.");
+                            eBuilder.setCancelable(true);
+
+                            // CREATE DIALOG
+                            AlertDialog error = eBuilder.create();
+                            error.show();
+
+
+                        }
+                        else {
+                            float convertAmount = Float.parseFloat(inputAmount.getText().toString());
+                            if(convertAmount > 0)
+                            {
+                                // call save method
+                                onSave();
+                            }
+                            else
+                            {
+                                Log.e(TAG, "AMOUNT CANNOT BE 0!");
+
+                                eBuilder.setTitle("ERROR!");
+                                eBuilder.setMessage("Input amount cannot be 0.");
+                                eBuilder.setCancelable(true);
+
+                                // CREATE DIALOG
+                                AlertDialog error = eBuilder.create();
+                                error.show();
+                            }
+
+                        }
+
 
                     }
                 }
@@ -96,7 +135,6 @@ public class FormFragment extends Fragment {
 
     public void onSave(){
 
-        // assign references
         inputTitle = (TextView) getActivity().findViewById(R.id.titleInput);
         inputAmount = (TextView) getActivity().findViewById(R.id.amountInput);
 
@@ -146,6 +184,7 @@ public class FormFragment extends Fragment {
 
     // reset inputs
     private void clearDisplay(){
+
         inputTitle = (TextView) getActivity().findViewById(R.id.titleInput);
         inputAmount = (TextView) getActivity().findViewById(R.id.amountInput);
 

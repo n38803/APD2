@@ -13,11 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.fullsail.android.smartbudget.dataclass.Expenses;
 import com.fullsail.android.smartbudget.dataclass.Income;
 import com.fullsail.android.smartbudget.fragments.ExpenseListviewFragment;
 import com.fullsail.android.smartbudget.fragments.IncomeListviewFragment;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 
@@ -28,6 +34,13 @@ public class MainActivity extends Activity {
     final String TAG = "MAIN_ACTIVITY";
     public static final int ADDREQUEST = 0;
 
+    public float totalSP;
+    public float totalIncome;
+    public float totalExpenses;
+
+    private final String spFile = "SmartBudget_SpendingPower.txt";
+    public ArrayList<Float> spObject;
+
 
 
 
@@ -36,9 +49,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO - SET ACTION BAR ITEM TO HIDE
 
-        updateDisplay();
+        readSP();
+        //updateDisplay();
 
 
         Button income   = (Button) findViewById(R.id.iButton);
@@ -99,7 +112,20 @@ public class MainActivity extends Activity {
             case (ADDREQUEST) : {
                 if (resultCode == Activity.RESULT_OK) {
 
+                    String request = data.getStringExtra("Fragment");
+
+                    Log.e(TAG, request);
+
+                    // Logic detection in order to update Spending Power accordingly
+                    if (request.equals("Income")){
+                        totalIncome = IncomeListviewFragment.mainIncome;
+                    }
+                    else if (request.equals("Expense")){
+                        totalExpenses = ExpenseListviewFragment.mainExpenses;
+                    }
+
                     updateDisplay();
+                    writeSP();
                 }
                 break;
             }
@@ -133,7 +159,8 @@ public class MainActivity extends Activity {
 
         // TODO - create dynamic update of spending power (milestone3)
         TextView sp = (TextView) findViewById(R.id.spendingPower);
-        float totalSP = (IncomeListviewFragment.mainIncome - ExpenseListviewFragment.mainExpenses);
+
+        totalSP         = (totalIncome - totalExpenses);
         Log.e(TAG,
                 "Income: "              + IncomeListviewFragment.mainIncome +
                         " // Expenses: "        + ExpenseListviewFragment.mainExpenses +
@@ -141,7 +168,58 @@ public class MainActivity extends Activity {
         );
         sp.setText("$" + String.format("%.2f", totalSP));
 
+        spObject = new ArrayList<>();
+        spObject.add(totalSP);
+        spObject.add(totalIncome);
+        spObject.add(totalExpenses);
 
+
+    }
+
+
+    // Creates local storage file
+    public void writeSP() {
+
+        try {
+            FileOutputStream fos = openFileOutput(spFile, this.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(spObject);
+            Log.i(TAG, "Spending Power Saved Successfully");
+            oos.close();
+
+        } catch (Exception e) {
+            Log.e(TAG, "SP Save Unsuccessful");
+        }
+
+
+
+    }
+
+    private void readSP() {
+
+
+        try {
+            FileInputStream fin = openFileInput(spFile);
+            ObjectInputStream oin = new ObjectInputStream(fin);
+
+            spObject = (ArrayList<Float>) oin.readObject();
+            oin.close();
+
+        } catch (Exception e) {
+            Log.e(TAG, "There are no files to pull");
+
+            Toast.makeText(this, "No data Saved - Track your income & expenses!", Toast.LENGTH_LONG).show();
+
+            updateDisplay();
+        }
+
+        totalSP         = spObject.get(0);
+        totalIncome     = spObject.get(1);
+        totalExpenses   = spObject.get(2);
+
+        TextView sp = (TextView) findViewById(R.id.spendingPower);
+        sp.setText("$" + String.format("%.2f", totalSP));
     }
 
 }

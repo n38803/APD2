@@ -1,5 +1,5 @@
 Developer Name: Shaun Thompson, NextGeneration Technologies
-Application Version: 1.2
+Application Version: 1.3
 Source Repository: https://github.com/n38803/APD2
 
 INSTALLATION GUIDE:
@@ -47,4 +47,4 @@ Currently, SmartBudget only tracks a user’s total Spending Power.  Future revi
 
 
 SPECIAL INSTRUCTIONS:
-- Please view our Milestone 3 update for full visual experience of UI components.
+- Please visit our webpage for documentation in regard to recent updates, upcoming updates, and application news.

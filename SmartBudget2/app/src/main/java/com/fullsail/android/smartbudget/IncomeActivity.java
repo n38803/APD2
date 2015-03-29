@@ -109,7 +109,6 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        // TODO - RETRIEVE INFO FROM FORM RESULTS
 
         if(requestCode == ADDREQUEST && resultCode == RESULT_OK){
             String mTitle = data.getStringExtra("incomeTitle");
@@ -142,7 +141,7 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
     @Override
     public void viewIncome(int position){
 
-        // TODO - Implement View Option
+        // TODO - Implement View Option ??
         Log.i(TAG, "Clicked Position " + position);
     /*
         // Declare Intent
@@ -167,7 +166,7 @@ public class IncomeActivity extends Activity implements IncomeListviewFragment.I
     // -[ STORAGE METHODS ----------------------------------------------
 
     // Creates local storage file
-    private void writeFile() {
+    public void writeFile() {
 
         try {
             FileOutputStream fos = openFileOutput(saveFile, this.MODE_PRIVATE);

@@ -82,7 +82,7 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
         if (id == R.id.action_add) {
 
 
-            // TODO - Create Intent to retrieve added information
+            // Create Intent to retrieve added information
             Intent addIntent = new Intent(ExpenseActivity.this, AddActivity.class);
             addIntent.putExtra("Add", "From_Expense");
             startActivityForResult(addIntent, ADDREQUEST);
@@ -99,7 +99,7 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        // TODO - RETRIEVE INFO FROM FORM RESULTS
+        // RETRIEVE INFO FROM FORM RESULTS
 
         if(requestCode == ADDREQUEST && resultCode == RESULT_OK){
             String mTitle = data.getStringExtra("expenseTitle");
@@ -132,7 +132,7 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
     @Override
     public void viewExpense(int position){
 
-        // TODO - Implement View Option
+        // TODO - Implement View Option ???
         Log.i(TAG, "Clicked Position " + position);
     /*
         // Declare Intent
@@ -157,7 +157,7 @@ public class ExpenseActivity extends Activity implements ExpenseListviewFragment
     // -[ STORAGE METHODS ----------------------------------------------
 
     // Creates local storage file
-    private void writeFile() {
+    public void writeFile() {
 
         try {
             FileOutputStream fos = openFileOutput(saveFile, this.MODE_PRIVATE);

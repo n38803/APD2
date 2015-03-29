@@ -54,8 +54,7 @@ public class ExpensesAdapter extends BaseAdapter {
         expenseTitle.setText(expense.getTitle());
 
         TextView expenseAmount = (TextView) convertView.findViewById(R.id.amount);
-        String amount = Float.toString(expense.getAmount());
-        expenseAmount.setText(amount);
+        expenseAmount.setText("$" + String.format("%.2f", expense.getAmount()));
 
         return convertView;
     }

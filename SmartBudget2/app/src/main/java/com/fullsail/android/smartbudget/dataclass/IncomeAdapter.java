@@ -54,8 +54,7 @@ public class IncomeAdapter extends BaseAdapter {
         incomeTitle.setText(income.getTitle());
 
         TextView incomeAmount = (TextView) convertView.findViewById(R.id.amount);
-        String amount = Float.toString(income.getAmount());
-        incomeAmount.setText(amount);
+        incomeAmount.setText("$" + String.format("%.2f", income.getAmount()));
 
         return convertView;
     }
