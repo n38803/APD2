@@ -122,11 +122,9 @@ public class IncomeListviewFragment extends Fragment {
         }
 
 
-        // TODO - FORMAT STRING SO FLOAT DOES NOT EXCEED 2 DECIMALS
         // update textview
         TextView incomeTotal = (TextView) getView().findViewById((R.id.totalIncome));
-        String displayIncome = Float.toString(totalIncome);
-        incomeTotal.setText("$" + displayIncome);
+        incomeTotal.setText("$" + String.format("%.2f", totalIncome));
 
 
     }

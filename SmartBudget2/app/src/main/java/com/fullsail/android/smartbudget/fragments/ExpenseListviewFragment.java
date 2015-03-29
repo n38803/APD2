@@ -112,11 +112,9 @@ public class ExpenseListviewFragment extends Fragment {
         }
 
 
-        // TODO - FORMAT STRING SO FLOAT DOES NOT EXCEED 2 DECIMALS
         // update textview
-        TextView expenseTotal = (TextView) getView().findViewById((R.id.totalExpenses));
-        String displayExpenses = Float.toString(totalExpenses);
-        expenseTotal.setText("$" + displayExpenses);
+        TextView expensesTotal = (TextView) getView().findViewById((R.id.totalExpenses));
+        expensesTotal.setText("$" + String.format("%.2f", totalExpenses));
     }
 }
 
