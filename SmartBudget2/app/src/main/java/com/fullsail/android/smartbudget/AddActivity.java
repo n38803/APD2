@@ -37,6 +37,10 @@ public class AddActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+
+        // TODO - SET ACTION BAR ITEM TO HIDE
+
+
         // Check to see whether or not there is a saved instance of the fragment
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -56,7 +60,9 @@ public class AddActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+
+
+        return false;
     }
 
     @Override
@@ -65,6 +71,8 @@ public class AddActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+
 
         return super.onOptionsItemSelected(item);
     }
