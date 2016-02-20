@@ -64,6 +64,12 @@ public class ExpenseListviewFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        updateListData();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
